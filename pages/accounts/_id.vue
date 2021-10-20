@@ -13,14 +13,10 @@ export default defineComponent({
     }
   },
   setup(props) {
-    console.log('props', props)
-    const data = inject(`transaction_${props.id}`, null)
-    console.log('data', data)
+    const data = inject(`transaction_${props.transaction}`, null)
+    console.log('inject data with transaction id', data)
 
     const msg = ref(`This is account ${props.id} (transaction: ${props.transaction})`)
-    watchEffect(() => {
-      console.log('efferct', props.transaction)
-    })
     return { msg }
   }
 })
